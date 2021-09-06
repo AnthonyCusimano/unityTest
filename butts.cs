@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,23 +24,19 @@ public class butts : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        //
-        Rigidbody myRb = GetComponent<Rigidbody>();
+    { 
 
-        //right | left
-        if (Input.GetKey(KeyCode.A))
-            myRb.AddForce(Vector3.left * this.myMoveModifier);
-
-        else if (Input.GetKey(KeyCode.D))
-            myRb.AddForce(Vector3.right * this.myMoveModifier);
-
-        //up | down
         if (Input.GetKey(KeyCode.W))
-            myRb.AddForce(Vector3.up * this.myMoveModifier);
+            this.transform.Translate((Vector3.up * Time.deltaTime) * this.myMoveModifier);
 
-        else if (Input.GetKey(KeyCode.S))
-            myRb.AddForce(Vector3.down * this.myMoveModifier);
+        if (Input.GetKey(KeyCode.A))
+            this.transform.Translate((Vector3.left * Time.deltaTime * this.myMoveModifier));
+
+        if (Input.GetKey(KeyCode.S))
+            this.transform.Translate((Vector3.down * Time.deltaTime) * this.myMoveModifier);
+
+        if (Input.GetKey(KeyCode.D))
+            this.transform.Translate((Vector3.right * Time.deltaTime) * this.myMoveModifier);
 
         //space
         if (Input.GetKey(KeyCode.Space))
